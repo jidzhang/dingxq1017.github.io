@@ -18,4 +18,3 @@ permalink:     /:year/:month/:day/:title.html
 
 # highlight
 highlighter: pygments
-
