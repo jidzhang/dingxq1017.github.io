@@ -5,4 +5,9 @@ description: "objectArx"
 category: 
 tags: []
 ---
-{% include JB/setup %}
+
+
+	int main()
+	{
+		print("hhhhhh");
+	}

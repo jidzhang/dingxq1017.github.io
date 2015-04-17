@@ -6,25 +6,15 @@ description: > # this means to ignore newlines until "baseurl:"
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://dingxq1017.github.io" # the base hostname & protocol for your site
 # twitter_username: jekyllrb
 github_username:  dingxq1017
 
 # Build settings
 markdown: kramdown
 
-=========
-# Site settings
-title: Vim China
-email: vimchina[AT]126.com
-description: Happy Vimming!
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://vimchina.github.io" # the base hostname & protocol for your site
-# twitter_username: jekyllrb
-github_username:  vimchina
-
-# Build settings
-markdown: kramdown
-
 # Outputting
 permalink:     /:year/:month/:day/:title.html
+
+
+
