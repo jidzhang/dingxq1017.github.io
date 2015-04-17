@@ -100,5 +100,15 @@
 //- Declare it as an extern here so that it becomes available in all modules
 extern AcApDataManager<CDocData> DocVars ;
 
+//STL headers
+#include <vector>
+#include <list>
+#include <set>
+#include <map>
+#include <string>
+#include <algorithm>
+#include <functional>
+#include <iterator>
+
 #pragma pack (pop)
 

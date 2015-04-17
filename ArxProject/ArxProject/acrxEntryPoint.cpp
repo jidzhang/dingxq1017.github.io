@@ -60,8 +60,16 @@ public:
 	virtual void RegisterServerComponents () {
 	}
 
+
+	// - ArxProject._rxdemo command (do not rename)
+	static void ArxProject_rxdemo(void)
+	{
+		// Add your code for command ArxProject._rxdemo here
+		acutPrintf(_T("\n Hello, ObjectArx!"));
+	}
 } ;
 
 //-----------------------------------------------------------------------------
 IMPLEMENT_ARX_ENTRYPOINT(CArxProjectApp)
 
+ACED_ARXCOMMAND_ENTRY_AUTO(CArxProjectApp, ArxProject, _rxdemo, rxdemo, ACRX_CMD_TRANSPARENT, NULL)

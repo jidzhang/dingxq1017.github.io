@@ -131,6 +131,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="2"
+				AdditionalIncludeDirectories="C:\ObjectARX2010\inc\;C:\ObjectARX2010\inc-win32\"
 				AdditionalUsingDirectories="C:\Program Files\AutoCAD 2010\"
 				PreprocessorDefinitions="WIN32;_WINDOWS;ARXPROJECT_MODULE;NDEBUG;_AFXEXT;_ACRXAPP"
 				StringPooling="true"
@@ -142,7 +143,7 @@
 				ForceConformanceInForLoopScope="true"
 				RuntimeTypeInfo="true"
 				UsePrecompiledHeader="2"
-				WarningLevel="1"
+				WarningLevel="3"
 				DebugInformationFormat="0"
 			/>
 			<Tool
@@ -158,6 +159,7 @@
 				Name="VCLinkerTool"
 				OutputFile="$(outdir)/ArxProject.arx"
 				LinkIncremental="2"
+				AdditionalLibraryDirectories="C:\ObjectARX2010\lib-win32\"
 				LinkDLL="true"
 				GenerateDebugInformation="false"
 				ProgramDatabaseFile=""
@@ -215,6 +217,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="C:\ObjectARX2010\inc\;C:\ObjectARX2010\inc-x64\"
 				AdditionalUsingDirectories="C:\Program Files\AutoCAD 2010\"
 				PreprocessorDefinitions="_WIN64;_WINDOWS;ARXPROJECT_MODULE;_AFXEXT;_ACRXAPP"
 				StringPooling="false"
@@ -226,7 +229,7 @@
 				ForceConformanceInForLoopScope="true"
 				RuntimeTypeInfo="true"
 				UsePrecompiledHeader="2"
-				WarningLevel="1"
+				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
 			<Tool
@@ -242,6 +245,7 @@
 				Name="VCLinkerTool"
 				OutputFile="$(outdir)/ArxProject.arx"
 				LinkIncremental="2"
+				AdditionalLibraryDirectories="C:\ObjectARX2010\lib-x64\"
 				LinkDLL="true"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/ArxProject.pdb"
@@ -299,6 +303,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="2"
+				AdditionalIncludeDirectories="C:\ObjectARX2010\inc\;C:\ObjectARX2010\inc-x64\"
 				AdditionalUsingDirectories="C:\Program Files\AutoCAD 2010\"
 				PreprocessorDefinitions="_WIN64;_WINDOWS;ARXPROJECT_MODULE;NDEBUG;_AFXEXT;_ACRXAPP"
 				StringPooling="true"
@@ -310,7 +315,7 @@
 				ForceConformanceInForLoopScope="true"
 				RuntimeTypeInfo="true"
 				UsePrecompiledHeader="2"
-				WarningLevel="1"
+				WarningLevel="3"
 				DebugInformationFormat="0"
 			/>
 			<Tool
@@ -326,6 +331,7 @@
 				Name="VCLinkerTool"
 				OutputFile="$(outdir)/ArxProject.arx"
 				LinkIncremental="2"
+				AdditionalLibraryDirectories="C:\ObjectARX2010\lib-x64\"
 				LinkDLL="true"
 				GenerateDebugInformation="false"
 				ProgramDatabaseFile=""
