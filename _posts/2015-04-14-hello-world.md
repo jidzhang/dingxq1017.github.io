@@ -7,7 +7,9 @@ tags: []
 ---
 
 
-	int main()
-	{
-		print("hhhhhh");
-	}
+```c
+int main()
+{
+	print("hhhhhh");
+}
+```
