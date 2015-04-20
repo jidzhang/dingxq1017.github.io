@@ -65,9 +65,9 @@ task :post do
     post.puts "---"
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/-/,' ')}\""
-    post.puts 'description: ""'
+    # post.puts 'description: ""'
     post.puts "category: #{category}"
-    post.puts "tags: #{tags}"
+    # post.puts "tags: #{tags}"
     post.puts "---"
     # post.puts "{% include JB/setup %}"
   end
@@ -92,9 +92,9 @@ task :page do
     post.puts "---"
     post.puts "layout: page"
     post.puts "title: \"#{title}\""
-    post.puts 'description: ""'
+    # post.puts 'description: ""'
     post.puts "---"
-    post.puts "{% include JB/setup %}"
+    # post.puts "{% include JB/setup %}"
   end
 end # task :page
 

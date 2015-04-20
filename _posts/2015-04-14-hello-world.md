@@ -1,13 +1,15 @@
 ---
 layout: post
-title: "hello world"
-description: "objectArx"
+title: "Hello World"
 category: 
-tags: []
 ---
 
 
-	int main()
-	{
-		print("hhhhhh");
-	}
+{% highlight c %}
+#include <stdio.h>
+int main()
+{
+	printf("Hello, world!\n");
+	return 0;
+}
+{% endhighlight %}
