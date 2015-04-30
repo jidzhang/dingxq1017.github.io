@@ -4,6 +4,7 @@
 	Version="9.00"
 	Name="ArxProject"
 	ProjectGUID="{60307823-89C5-44F6-81A6-3516E1E8478D}"
+	RootNamespace="ArxProject"
 	TargetFrameworkVersion="196613"
 	>
 	<Platforms>
@@ -374,6 +375,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArxCookbook.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ArxProject.cpp"
 				>
 			</File>
@@ -426,6 +431,10 @@
 			Name="Include Files"
 			Filter="h;hh;hxx"
 			>
+			<File
+				RelativePath=".\ArxCookbook.h"
+				>
+			</File>
 			<File
 				RelativePath=".\DocData.h"
 				>
