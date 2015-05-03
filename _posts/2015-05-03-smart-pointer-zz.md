@@ -43,13 +43,13 @@ ObjectArx 利用 C++ 栈上变量作用域/生命周期约定，重载 operator-
 	typedef AcDbSymbolTableRecordPointer<AcDbViewTableRecord>      AcDbViewTableRecordPointer;
 	typedef AcDbSymbolTableRecordPointer<AcDbViewportTableRecord>  AcDbViewportTableRecordPointer;
  
-下面的例子目的是在AcDbEntity添加扩展字典数据，使用了AcDbEntityPointer 、AcDbDictionaryPointer 、AcDbObjectPointer<AcDbXrecord>等智能指针。
+下面的例子目的是给AcDbEntity添加扩展字典数据，使用了AcDbEntityPointer 、AcDbDictionaryPointer 、AcDbObjectPointer<AcDbXrecord>等智能指针。
 
 {% lighlight cpp %}
-bool SetEntityDictFromRbChain(AcDbObjectId entId,ACHAR *strDictName,resbuf* pRbValue)
+bool SetEntityDictFromRbChain(AcDbObjectId entId, ACHAR * strDictName, resbuf * pRbValue)
 {
-	AcDbEntityPointer pObj(entId,AcDb::kForWrite);
-	if (pObj.openStatus()!=Acad::eOk ) 
+	AcDbEntityPointer pObj(entId, AcDb::kForWrite);
+	if (pObj.openStatus() != Acad::eOk )	//check status
 		return false;
 
 	AcDbObjectId extDictId = pObj->extensionDictionary();
@@ -62,17 +62,17 @@ bool SetEntityDictFromRbChain(AcDbObjectId entId,ACHAR *strDictName,resbuf* pRbV
 			return false;
 	}
 
-	AcDbDictionaryPointer pDict(extDictId,AcDb::kForRead);
+	AcDbDictionaryPointer pDict(extDictId, AcDb::kForRead);
 	if(pDict.openStatus() != Acad::eOk)
 		return false;
 
 	AcDbObjectId xRecId;
-	if(pDict->getAt(strDictName,xRecId) != Acad::eOk)
+	if(pDict->getAt(strDictName, xRecId) != Acad::eOk)
 	{
 		AcDbXrecord* pXrec = new AcDbXrecord();
-		//pXrec 可以使用 scoped_ptr
+		//pXrec 可以使用 scoped_ptr（定域指针）
 		pDict->upgradeOpen();
-		if(pDict->setAt(strDictName,pXrec,xRecId) != Acad::eOk)
+		if(pDict->setAt(strDictName, pXrec, xRecId) != Acad::eOk)
 		{
 			delete pXrec;
 			return false;
@@ -80,7 +80,7 @@ bool SetEntityDictFromRbChain(AcDbObjectId entId,ACHAR *strDictName,resbuf* pRbV
 		pXrec->close();
 	}
 
-	AcDbObjectPointer<AcDbXrecord> pXrcord(xRecId,AcDb::kForWrite);
+	AcDbObjectPointer<AcDbXrecord> pXrcord(xRecId, AcDb::kForWrite);
 	if(pXrcord.openStatus() != Acad::eOk) 
 		return false; 
 
@@ -89,5 +89,10 @@ bool SetEntityDictFromRbChain(AcDbObjectId entId,ACHAR *strDictName,resbuf* pRbV
 
 	acutRelRb(pRbValue);
 	return true;
+	//离开函数时，上面定义的指针自动析构，同时释放资源或关闭数据库对象
 }
 {% endhighlight %}
+
+原文地址：http://blog.sina.com.cn/s/blog_69e8fdf001012utl.html
+
+关于智能指针的使用，还可以看我们另一篇文章里的范例： [创建块和块参照](../../../2015/04/27/create-block.html)
