@@ -383,6 +383,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ArxUtility.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\DocData.cpp"
 				>
 			</File>
@@ -433,6 +437,10 @@
 			>
 			<File
 				RelativePath=".\ArxCookbook.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ArxUtility.h"
 				>
 			</File>
 			<File

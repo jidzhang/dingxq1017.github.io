@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "ArxCookbook.h"
+#include "ArxUtility.h"
 
 namespace arxcookbook
 {
