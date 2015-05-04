@@ -12,6 +12,7 @@
 
 namespace arxmath
 {
+	bool Equal(int a, int b) { return a == b; }
 	bool Equal(double a, double b) { return fabs(a-b) < EPS; }
  	bool LessThan(int a, int b) { return a < b; }
 	bool LessThan(double a, double b) { return a + EPS < b; }
@@ -29,6 +30,11 @@ namespace arxmath
 namespace arxcookbook
 {
 
-BOOL PointIsInPolygon(AcGePoint3d pt, AcGePoint3dArray ptArr);
+bool PointInPolygon(AcGePoint3d pt, AcGePoint3dArray plVertices);
+bool neoPointInPolygon(AcGePoint3d pt, AcGePoint3dArray plVertices);
+bool RgnInRgn(const AcDbRegion * pRegion1,const AcDbRegion * pRegion2);
+bool GetPolyCentroid(AcDbPolyline * pPline, ads_point CenPt);
+int GetColorIndexFromColorRef(COLORREF color);
+COLORREF GetColorRefFromIndex(int colorIndex);
 
 }

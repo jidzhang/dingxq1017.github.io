@@ -109,8 +109,8 @@ bool RgnInRgn(const AcDbRegion* pRegion1,const AcDbRegion* pRegion2)
 {
     if (pRegion1==NULL||pRegion2==NULL) return false;
 
-    AcDbObjectPointer< AcDbRegion > spRegion1;
-    AcDbObjectPointer< AcDbRegion > spRegion2;
+    AcDbObjectPointer<AcDbRegion> spRegion1;
+    AcDbObjectPointer<AcDbRegion> spRegion2;
     if (spRegion1.create()!=Acad::eOk)
     {
         acdbFail("\n内存不足");
@@ -177,44 +177,6 @@ void CMyDatabase::rotationGroup(CString strGroupName ,CReiPoint ptRotation,doubl
     }
     delete pIter;
     pGroup->close();
-}
-
-//点是否在区域内
-//功能：判断点 pt 是否在区域 ptArr 内
-//实现：根据射线法求交点个数，偶数－区域外，奇数－区域内
-//变量：pt 指定点 ptArr 判断区域
-//返回：在区域 TRUE 不在 FALSE
-BOOL BaseHandle::PointIsInPolygon(AcGePoint3d pt, AcGePoint3dArray ptArr)
-{
-    int ptNum,i,interNum;
-    AcGePoint3d ptA,ptB;
-    ads_point pt0,pt1,pt2,ptIns,ptX;
-
-    interNum = 0;
-    pt0[X] = 0.0;
-    pt0[Y] = 0.0;
-    pt0[Z] = 0.0;
-    ptX[X] = pt.x;
-    ptX[Y] = pt.y;
-    ptX[Z] = pt.z;
-    ptNum = ptArr.length();
-    for (i = 0;i < ptNum - 1;i++) {
-        ptA = ptArr.at(i);
-        ptB = ptArr.at(i + 1);
-        pt1[X] = ptA.x;
-        pt1[Y] = ptA.y;
-        pt1[Z] = 0.0;
-        pt2[X] = ptB.x;
-        pt2[Y] = ptB.y;
-        pt2[Z] = 0.0;
-        if (acdbInters(ptX,pt0,pt1,pt2,1,ptIns) == RTNORM){
-            interNum++;
-        }
-    }
-    if (interNum % 2 == 0)
-        return false;
-    else
-        return true;
 }
 
 /******************************************************************
