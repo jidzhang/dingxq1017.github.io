@@ -45,7 +45,7 @@ ObjectArx 利用 C++ 栈上变量作用域/生命周期约定，重载 operator-
  
 下面的例子目的是给AcDbEntity添加扩展字典数据，使用了AcDbEntityPointer 、AcDbDictionaryPointer 、AcDbObjectPointer<AcDbXrecord>等智能指针。
 
-{% lighlight cpp %}
+{% highlight cpp %}
 bool SetEntityDictFromRbChain(AcDbObjectId entId, ACHAR * strDictName, resbuf * pRbValue)
 {
 	AcDbEntityPointer pObj(entId, AcDb::kForWrite);
