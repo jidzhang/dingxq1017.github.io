@@ -140,6 +140,9 @@ code {
 pre {
     padding: 8px 12px;
     /*overflow-x: scroll;*/
+	white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
 
     > code {
         border: 0;
