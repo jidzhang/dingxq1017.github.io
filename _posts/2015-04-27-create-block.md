@@ -9,6 +9,7 @@ category:
 通常我们打开或新建的一张dwg图纸就是一个图形数据库（Graphic Database），这是一个实实在在的数据库，由表（Table）和记录（TableRecord）组成。大家用AutoCAD画图，除了画线画实体外，还几乎必须用到图层表、标注样式表和线型表等，这就是在直接操作AutoCAD图形数据库的各种表。
 
 具体来说，AutoCAD图形数据库由 9 个符号表和一个命名字典构成，每个表（table）下面是一条一条的记录（record）。这 9 个表分别是：
+
 	
 |符号表名 | 符号表功能
 |-------|---------
@@ -21,6 +22,7 @@ category:
 |AcDbRegAppTable(应用程序名注册表) | 适用于 AcDbRegAppTableRecord 类，表示为图形数据库中对象的扩展实体数据而注册的应用程序名。
 |AcDbDimStyleTable(尺寸标注样式表) | 适用于 AcDbDimStyleTableRecord 类，表示图形数据库中的尺寸标注样式。
 |AcDbBlockTable(块表) | 适用于 AcDbDimStyleTableRecord 类，表示图形数据库中定义的块。此表含有两个非常重要的记录：模型空间和图纸空间。所有的实体(可见对象)均防御块表AcDbBlockTable中。
+
 
 通常进行的绘图操作，从编程角度来说是这样一个流程：
 

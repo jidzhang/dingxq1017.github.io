@@ -102,7 +102,17 @@ a {
     }
 }
 
-
+/**
+ * Tables
+ */
+table tr td {
+    border: 1px solid #cccccc;
+    margin: 0;
+    padding: 6px 13px;
+}
+table {
+    border-collapse: collapse;
+}
 
 /**
  * Blockquotes
