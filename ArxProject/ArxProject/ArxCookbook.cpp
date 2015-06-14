@@ -62,7 +62,7 @@ void create_block()
 	SquareOfLines(ents,5);
 
 	//add the lines to our block
-	for(size_t i = 0 ; i < ents.length();i++)
+	for(int i = 0 ; i < ents.length();i++)
 	{
 		AcDbEntity *pTmp = (AcDbEntity*)ents[i];
 		if(pNewBlockTableRecord->appendAcDbEntity(pTmp) != eOk)
@@ -113,5 +113,13 @@ static void SquareOfLines(AcDbVoidPtrArray &ents, double size)
 	}
 }
 
+void user_define_highlight()
+{
+	ads_name ent;
+	ads_point pt;
+	acedEntSel(_T("\n—°‘Ò µÃÂ"), ent, pt);
+	acedRedraw(ent, 3);
+
+}
 }
 

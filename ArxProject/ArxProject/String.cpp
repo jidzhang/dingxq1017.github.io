@@ -38,7 +38,7 @@ DWORD MByteToWChar(const char * lpcszStr, wchar_t ** lpwszStr)
 	return dwMinSize;
 }
 
-CString String2CString(const std::string & str)
+CString ToCString(const std::string & str)
 {
 	CString strRe;
 #if _UNICODE
@@ -53,7 +53,7 @@ CString String2CString(const std::string & str)
 	return strRe;
 }
 
-std::string CString2String(const CString & str)
+std::string ToString(CString str)
 {
 	std::string strRe;
 	CString strSrc(str);

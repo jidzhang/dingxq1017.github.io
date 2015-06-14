@@ -74,7 +74,7 @@ bool neoPointInPolygon(AcGePoint3d pt, AcGePoint3dArray plVertices)
 
 //区域是否在区域内
 // Function name : RgnInRgn
-// Descrīption : is Region1 in Region2?
+// Description: is Region1 in Region2?
 // Return type : bool 
 // Argument : const AcDbRegion * pRegion1
 // Argument : const AcDbRegion * pRegion2
@@ -86,18 +86,18 @@ bool RgnInRgn(const AcDbRegion * pRegion1,const AcDbRegion * pRegion2)
     AcDbObjectPointer<AcDbRegion> spRegion2;
     if (spRegion1.create()!=Acad::eOk)
     {
-        acdbFail("\n内存不足");
+        acdbFail(_T("\n内存不足"));
         return false;
     }
     if (spRegion2.create()!=Acad::eOk)
     {
-        acdbFail("\n内存不足");
+        acdbFail(_T("\n内存不足"));
         return false;
     }
 
     if ((spRegion1->copyFrom(pRegion1)!= Acad::eOk)||(spRegion2->copyFrom(pRegion2)!= Acad::eOk))
     {
-        acdbFail("\n无法复制对象");
+        acdbFail(_T("\n无法复制对象"));
         return false;
     }
 
@@ -133,13 +133,13 @@ bool GetPolyCentroid(AcDbPolyline * pPline, ads_point CenPt)
     AcGePoint2d extentsLow, extentsHigh;
 
     if (pPline->isClosed() != Adesk::kTrue) {
-        ads_printf("\n折线不封闭, 无法形成正确的区域。");
+        ads_printf(_T("\n折线不封闭, 无法形成正确的区域。"));
         return false;
     }
     curveSegments.append((AcDbCurve *) pPline);
 
     if (AcDbRegion::createFromCurves(curveSegments, regions) != Acad::eOk) {
-        ads_printf("\n创建临时区域对象失败!");
+        ads_printf(_T("\n创建临时区域对象失败!"));
         //清除Region, 应第9 贴的指点，即使createFromCurves错误，也应清除之；
         iCount = regions.length();
         for(i = 0; i < iCount; i++)
@@ -149,12 +149,12 @@ bool GetPolyCentroid(AcDbPolyline * pPline, ads_point CenPt)
     }
     AcDbRegion * pRegion;
     if ((iCount = regions.length()) == 0) {
-        ads_printf("\n创建临时区域对象为空!");
+        ads_printf(_T("\n创建临时区域对象为空!"));
         return false;
     }
     if (iCount > 1) {
         // 多个 AcDbRegion , 无法确定应该返回哪一个，干脆返回NULL;
-        ads_printf("\n多个区域实体。");
+        ads_printf(_T("\n多个区域实体。"));
         for(i = 0; i < iCount; i++)
             delete (AcDbRegion *)regions.at(i); 
         return false;
@@ -169,13 +169,16 @@ bool GetPolyCentroid(AcDbPolyline * pPline, ads_point CenPt)
                 origin, xAxis, yAxis,
                 perimeter, area, centroid, momInertia, prodInertia, prinMoments, prinAxes, radiiGyration,
                 extentsLow, extentsHigh) != Acad::eOk ){
-        ads_printf("\n区域面积: %.3f, 周长:%.3f", area, perimeter);
-        ads_printf("\n获取区域对象属性失败!");
+        ads_printf(_T("\n区域面积: %.3f, 周长:%.3f"), area, perimeter);
+        ads_printf(_T("\n获取区域对象属性失败!"));
         delete pRegion; 
         return false;
     }
-    XYZ_POINT(CenPt, centroid.x, centroid.y, 0); //得到形心坐标
-    ads_printf("\n区域面积: %.3f, 周长:%.3f", area, perimeter);
+    //得到形心坐标
+	CenPt[X] = centroid.x;
+	CenPt[Y] = centroid.y;
+	CenPt[Z] = 0;
+    ads_printf(_T("\n区域面积: %.3f, 周长:%.3f"), area, perimeter);
     pRegion->close();
     delete pRegion;
 
@@ -213,7 +216,7 @@ COLORREF GetColorRefFromIndex(int colorIndex)
 {
     if(colorIndex < 0 || colorIndex > 255)
     {
-        ads_alert("传入的颜色号不在0~255之间!");
+        ads_alert(_T("传入的颜色号不在0~255之间!"));
         return 0;
     }
 
