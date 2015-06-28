@@ -6,5 +6,8 @@ namespace arxcookbook
 	void create_block();
 	//选择实体，并设置高亮
 	void user_define_highlight();
+	
+	//ssget demo
+	void ssget_test_demo();
 
 }

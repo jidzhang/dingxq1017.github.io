@@ -36,7 +36,7 @@ bool PointInPolygon(AcGePoint3d pt, AcGePoint3dArray plVertices)
 		pt2[Z] = 0.0;
 		if (acdbInters(ptX,pt0,pt1,pt2,1,ptIns) == RTNORM) {
 			//如果交点恰好是边的上部顶点，则不计数
-			if (!arxmath::Equal(ptIns[Y], arxmath::Max(ptA.y, ptB.y)))
+			if (!arxmath::Equal(ptIns[Y], arxmath::MAX(ptA.y, ptB.y)))
 				interNum++;
 		}
 	}
@@ -62,7 +62,7 @@ bool neoPointInPolygon(AcGePoint3d pt, AcGePoint3dArray plVertices)
 		AcGePoint3d ptIns;
 		if (xline.intersectWith(next_line, ptIns) == Adesk::kTrue)  {
 			//如果交点恰好是边的上部顶点，则不计数
-			if (!arxmath::Equal(ptIns[Y], arxmath::Max(ptA.y, ptB.y)))
+			if (!arxmath::Equal(ptIns[Y], arxmath::MAX(ptA.y, ptB.y)))
 				interNum++;
 		}
 	}
@@ -119,7 +119,7 @@ bool RgnInRgn(const AcDbRegion * pRegion1,const AcDbRegion * pRegion2)
 }
 
 //计算多边形的形心坐标
-bool GetPolyCentroid(AcDbPolyline * pPline, ads_point CenPt)
+bool GetCentroid(AcDbPolyline * pPline, ads_point CenPt)
 {
     unsigned int i, iCount = 0;
     AcDbVoidPtrArray curveSegments, regions;

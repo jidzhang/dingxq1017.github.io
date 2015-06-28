@@ -75,6 +75,13 @@ public:
 		// Add your code for command ArxProject._MyBlock here
 		arxcookbook::create_block();
 	}
+
+	// - ArxProject._sstest command (do not rename)
+	static void ArxProject_sstest(void)
+	{
+		// Add your code for command ArxProject._sstest here
+		arxcookbook::ssget_test_demo();
+	}
 } ;
 
 //-----------------------------------------------------------------------------
@@ -82,3 +89,4 @@ IMPLEMENT_ARX_ENTRYPOINT(CArxProjectApp)
 
 ACED_ARXCOMMAND_ENTRY_AUTO(CArxProjectApp, ArxProject, _rxdemo, rxdemo, ACRX_CMD_TRANSPARENT, NULL)
 ACED_ARXCOMMAND_ENTRY_AUTO(CArxProjectApp, ArxProject, _MyBlock, MyBlock, ACRX_CMD_TRANSPARENT, NULL)
+ACED_ARXCOMMAND_ENTRY_AUTO(CArxProjectApp, ArxProject, _sstest, sstest, ACRX_CMD_TRANSPARENT, NULL)

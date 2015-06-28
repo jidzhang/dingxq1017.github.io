@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "ArxCookbook.h"
 #include "ArxUtility.h"
+#include "SSGetFilter.h"
 
 namespace arxcookbook
 {
@@ -121,5 +122,14 @@ void user_define_highlight()
 	acedRedraw(ent, 3);
 
 }
+
+void ssget_test_demo()
+{
+	MySSGetFilter myFilter;
+	addSSgetFilterInputContextReactor(curDoc(), &myFilter);
+
+	removeSSgetFilterInputContextReactor(curDoc(), &myFilter);
+}
+
 }
 
