@@ -3,14 +3,14 @@
 typedef AcArray<AcDbIntArray, AcArrayObjectCopyReallocator<AcDbIntArray> > 
 AcDbArrayIntArray;
 
-/***********************
+/*********************************************************
  * 选择集过滤器
  * 目的有三：
  *     1. 选中实体不仅高亮显示，还以一个颜色显示（默认品红）
  *     2. 可以按组高亮显示
  *     3. 可以指定过滤条件，主要是图层
  * 并且实现选择结束后恢复本来的颜色
- **********************/
+ ********************************************************/
 class MySSGetFilter : public AcEdSSGetFilter
 {
 public:
